@@ -1,0 +1,29 @@
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-31 11:33:36
+hint
+project --topLevelPackage org.roo.inaction.taskmanager --projectName Taskmanager
+help logging
+logging setup --level DEBUG 
+logging setup --level WARN 
+logging setup --level TRACE --package PROJECT 
+hint
+jpa setup --database DERBY_EMBEDDED --provider ECLIPSELINK 
+entity jpa --class ~.model.Task --testAutomatically 
+field string --fieldName task --notNull --sizeMax 40
+field boolean --fieldName completed --value false
+web mvc setup
+quit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-31 12:01:05
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-31 12:37:45
+backup
+hint
+web mvc all --package ~.web
+quit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-31 14:07:53
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log opened at 2012-01-31 18:05:42
+repository jpa --interface ~.repository.TaskRepository --entity ~.model.Task
+service --interface ~.service.TaskService --entity ~.model.Task
+quit
+// Spring Roo 1.2.0.RELEASE [rev 39eb957] log closed at 2012-01-31 18:28:57
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-01-31 18:36:05
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-01-31 18:36:47
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-01-31 21:11:51

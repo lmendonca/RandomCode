@@ -1,0 +1,17 @@
+<ivy-module version="2.0">
+	<info organisation="junitbook" module="example-ivy" />
+	<dependencies>
+		<dependency org="junit" name="junit" rev="4.10" />
+		<dependency org="org.mortbay.jetty" name="jetty" rev="6.0.1" />
+		<dependency org="org.easymock" name="easymock" rev="3.1" />
+		<dependency org="org.jmock" name="jmock-junit4" rev="2.5.1" />
+		<dependency org="org.jmock" name="jmock-legacy" rev="2.5.1" />
+		<dependency org="cglib" name="cglib-nodep" rev="2.1_3" />
+		<dependency org="org.objenesis" name="objenesis" rev="1.1" />
+		<dependency org="org.hamcrest" name="hamcrest-all" rev="1.1" />
+<!-- 		<dependency org="" name="" rev="" /> -->
+<!-- 		<dependency org="" name="" rev="" /> -->
+<!-- 		<dependency org="" name="" rev="" /> -->
+<!-- 		<dependency org="" name="" rev="" /> -->
+	</dependencies>
+</ivy-module>
