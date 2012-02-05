@@ -40,3 +40,5 @@ finder list --depth 2 --filter courseType,runDate
 finder add --finderName findCoursesByCourseTypeAndRunDateBetween
 hint jpa
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-03 02:40:28
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-02-04 21:24:01
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-02-04 22:20:16
