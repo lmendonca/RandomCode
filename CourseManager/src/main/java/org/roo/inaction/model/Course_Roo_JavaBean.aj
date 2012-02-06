@@ -8,6 +8,7 @@ import java.lang.String;
 import java.math.BigDecimal;
 import java.util.Date;
 import org.roo.inaction.model.CourseTypeEnum;
+import org.roo.inaction.model.TrainingProgram;
 
 privileged aspect Course_Roo_JavaBean {
     
@@ -57,6 +58,14 @@ privileged aspect Course_Roo_JavaBean {
     
     public void Course.setCourseType(CourseTypeEnum courseType) {
         this.courseType = courseType;
+    }
+    
+    public TrainingProgram Course.getTrainingProgram() {
+        return this.trainingProgram;
+    }
+    
+    public void Course.setTrainingProgram(TrainingProgram trainingProgram) {
+        this.trainingProgram = trainingProgram;
     }
     
 }

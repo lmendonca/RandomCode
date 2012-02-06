@@ -18,6 +18,9 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.roo.inaction.model.Course;
 import org.roo.inaction.model.CourseTypeEnum;
+import org.roo.inaction.model.TrainingProgram;
+import org.roo.inaction.model.TrainingProgramDataOnDemand;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect CourseDataOnDemand_Roo_DataOnDemand {
@@ -27,6 +30,9 @@ privileged aspect CourseDataOnDemand_Roo_DataOnDemand {
     private Random CourseDataOnDemand.rnd = new SecureRandom();
     
     private List<Course> CourseDataOnDemand.data;
+    
+    @Autowired
+    private TrainingProgramDataOnDemand CourseDataOnDemand.trainingProgramDataOnDemand;
     
     public void CourseDataOnDemand.setCourseType(Course obj, int index) {
         CourseTypeEnum courseType = CourseTypeEnum.class.getEnumConstants()[0];
@@ -68,6 +74,11 @@ privileged aspect CourseDataOnDemand_Roo_DataOnDemand {
     public void CourseDataOnDemand.setRunDate(Course obj, int index) {
         Date runDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
         obj.setRunDate(runDate);
+    }
+    
+    public void CourseDataOnDemand.setTrainingProgram(Course obj, int index) {
+        TrainingProgram trainingProgram = trainingProgramDataOnDemand.getRandomTrainingProgram();
+        obj.setTrainingProgram(trainingProgram);
     }
     
     public Course CourseDataOnDemand.getSpecificCourse(int index) {

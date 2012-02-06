@@ -19,6 +19,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.roo.inaction.model.TrainingProgram;
+import javax.persistence.ManyToOne;
 
 @RooJavaBean
 @RooToString
@@ -52,6 +54,9 @@ public class Course {
     @NotNull
     @Enumerated(EnumType.STRING)
     private CourseTypeEnum courseType;
+
+    @ManyToOne
+    private TrainingProgram trainingProgram;
 
     @AssertTrue(message = "Price is invalid - must be between $0 - $10,000 with no fractional values.")
     public boolean isValid() {
