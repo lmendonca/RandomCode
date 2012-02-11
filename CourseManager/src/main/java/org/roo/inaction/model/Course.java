@@ -21,6 +21,11 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.roo.inaction.model.TrainingProgram;
 import javax.persistence.ManyToOne;
+import java.util.Set;
+import org.roo.inaction.model.Tag;
+import java.util.HashSet;
+import javax.persistence.ManyToMany;
+import javax.persistence.CascadeType;
 
 @RooJavaBean
 @RooToString
@@ -58,6 +63,9 @@ public class Course {
     @ManyToOne
     private TrainingProgram trainingProgram;
 
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "courses")
+    private Set<Tag> tags = new HashSet<Tag>();
+
     @AssertTrue(message = "Price is invalid - must be between $0 - $10,000 with no fractional values.")
     public boolean isValid() {
         if (listPrice != null) {
@@ -68,5 +76,9 @@ public class Course {
             }
         }
         return true;
+    }
+    
+    public void addTag(Tag tag) {
+        tag.addCourse(this);
     }
 }

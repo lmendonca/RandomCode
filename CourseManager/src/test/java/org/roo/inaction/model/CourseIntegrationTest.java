@@ -132,7 +132,7 @@ public class CourseIntegrationTest {
 
 	@Test
 	@Transactional
-	@Ignore(value="Ignore for not able to configure the right test")
+	@Ignore(value = "Ignore for not able to configure the right test")
 	public void testFindCoursesByCourseTypeAndRunDateBetween() {
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DATE, -1);
@@ -152,8 +152,26 @@ public class CourseIntegrationTest {
 
 		List<Course> courses = Course.findCoursesByCourseTypeAndRunDateBetween(
 				courseType, minRunDate, maxRunDate).getResultList();
-		
+
 		Assert.assertEquals(1, courses.size());
+
+	}
+
+	@Test
+	public void testPersistTagsInCourses() {
+		CourseDataOnDemand courseDod = new CourseDataOnDemand();
+		Course course = courseDod.getRandomCourse();
+		TagDataOnDemand tagDod = new TagDataOnDemand();
+		Tag t1 = tagDod.getNewTransientTag(0);
+		Tag t2 = tagDod.getNewTransientTag(1);
+		course.getTags().add(t1);
+		course.getTags().add(t2);
+		t1.getCourses().add(course);
+		t2.getCourses().add(course);
+		course.flush();
+		course.clear();
+		Assert.assertEquals(2, Course.findCourse(course.getId()).getTags()
+				.size());
 		
 	}
 }
